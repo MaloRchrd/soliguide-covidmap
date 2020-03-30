@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="urlparams.js" charset="utf-8"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+    ></script>
+  </head>
+  <style media="screen">
+    /*body{
+		display: inline-flex;
+	}*/
+    #map {
+      height: 100vh;
+    }
+    /*.sidebar{
+		margin: 20px;
+		width: 20vw;
+		height: 100vh;
+	}*/
+    .insta-btn {
+      color: #fff !important;
+      background-color: #356797;
+      border: 1px solid #356797;
+      border-radius: 5px;
+      padding: 5px 10px;
+      text-decoration: none;
+      margin-left: 15px;
+      position: absolute;
+      top: 10px;
+      width: 114px;
+    }
+    .insta-loc {
+      color: #fff !important;
+      background-color: #356797;
+      border: 1px solid #356797;
+      border-radius: 5px;
+      padding: 5px 10px;
+      text-decoration: none;
+      margin-left: 15px;
+      position: absolute;
+      top: 40px;
+      width: 114px;
+    }
+
+    .followMe {
+      color: #fff !important;
+      background-color: #356797;
+      border: 1px solid #356797;
+      border-radius: 5px;
+      padding: 5px 10px;
+      text-decoration: none;
+    }
+    .insta-f {
+      display: none;
+      color: #fff !important;
+      background-color: #356797;
+      border: 1px solid #356797;
+      border-radius: 5px;
+      padding: 0px 10px 6px 10px;
+      text-decoration: none;
+      margin-left: 15px;
+      position: absolute;
+      bottom: 60px;
+      width: 160px;
+    }
+    .instabtn {
+      color: #fff !important;
+      background-color: #356797;
+      border: 1px solid #356797;
+      border-radius: 5px;
+      padding: 5px 10px;
+      text-decoration: none;
+      /* margin: 1px; */
+      position: absolute;
+      bottom: 83px;
+      left: 35px;
+      width: 112px;
+    }
+    .instafollow {
+      color: #fff !important;
+      background-color: #356797;
+      border: 1px solid #356797;
+      border-radius: 5px;
+      padding: 0px 10px 6px 10px;
+      text-decoration: none;
+      /* margin: 1px; */
+      position: absolute;
+      top: 23px;
+      left: 30%;
+      width: 160px;
+    }
+    .instapic {
+      height: 300px;
+      border-radius: 5px;
+      border: 1px solid #356797;
+    }
+
+    .button-group {
+      top: 0px;
+      position: absolute;
+    }
+
+    .leaflet-container .leaflet-marker-pane img {
+      border-radius: 5px !important;
+    }
+    .leaflet-container .leaflet-marker-pane img::hover {
+      transform: translate3d(10%, 10%, 0px) !important;
+    }
+    .leaflet-popup-content-wrapper,
+    .leaflet-popup-tip {
+      background: transparent;
+      color: transparent;
+      box-shadow: 0 0px 0px rgba(0, 0, 0, 0.4);
+    }
+    .leaflet-popup-close-button {
+      display: none;
+    }
+    @media (min-width: 320px) and (max-width: 480px) {
+      .instapic {
+        height: 100px;
+        border-radius: 5px;
+        border: 1px solid #356797;
+      }
+      .button-group {
+        position: absolute;
+        top: -80px;
+      }
+    }
+
+    @keyframes bouncing-loader {
+      to {
+        opacity: 0.1;
+        transform: translate3d(0, -1rem, 0);
+      }
+    }
+    .bouncing-loader {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      height: 100vh;
+      top: 45%;
+      left: 45%;
+    }
+    .bouncing-loader > div {
+      width: 1rem;
+      height: 1rem;
+      margin: 3rem 0.2rem;
+      background: #8385aa;
+      border-radius: 50%;
+      animation: bouncing-loader 0.6s infinite alternate;
+    }
+    .bouncing-loader > div:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .bouncing-loader > div:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  </style>
+  <body style="height:100vh;margin: 0;">
+    <div id="map" class="map"></div>
+    <div id="loader" class="bouncing-loader">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="credidential" id="credidential"></div>
+  </body>
+  <script src="covid.js"></script>
+</html>
