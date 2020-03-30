@@ -8,6 +8,26 @@ document.addEventListener("DOMContentLoaded", function(e) {
   var soliguideMap;
   var mapCenter;
 
+  function updateURLParameter(url, param, paramVal) {
+    var newAdditionalURL = "";
+    var tempArray = url.split("?");
+    var baseURL = tempArray[0];
+    var additionalURL = tempArray[1];
+    var temp = "";
+    if (additionalURL) {
+      tempArray = additionalURL.split("&");
+      for (var i = 0; i < tempArray.length; i++) {
+        if (tempArray[i].split("=")[0] != param) {
+          newAdditionalURL += temp + tempArray[i];
+          temp = "&";
+        }
+      }
+    }
+
+    var rows_txt = temp + "" + param + "=" + paramVal;
+    return baseURL + "?" + newAdditionalURL + rows_txt;
+  }
+
   var greenIcon = new L.Icon({
     iconUrl:
       "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
@@ -146,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   };
 
   var loadNewMarker = function(cat, lat, lng) {
+    updateURLParameter(document.location.href, "cat", cat);
     console.log("load new");
 
     markerGroup.clearLayers();
@@ -428,10 +449,16 @@ document.addEventListener("DOMContentLoaded", function(e) {
         customPopup += fiche.close.precision;
         customPopup += "</p>";
       }
+      if (fiche.info.horaires) {
+        customPopup += "<h3>Horaires Temporairement</h3>";
+        customPopup += "<p>";
+        customPopup += fiche.info.horaires_description;
+        customPopup += "</p>";
+      }
       customPopup +=
         "<br/><a class='followMe' href=https://soliguide.fr/fiche/";
       customPopup += fiche.lieu_id;
-      customPopup += ">voir sur soliguide</a></p></div>";
+      customPopup += ">voir sur Soliguide</a></p></div>";
 
       // specify popup options
       var customOptions = {
