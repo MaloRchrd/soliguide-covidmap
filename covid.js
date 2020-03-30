@@ -443,6 +443,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
         if (fiche.info.description != undefined) {
           customPopup += fiche.info.description;
         }
+        if (fiche.info.horaires != undefined || fiche.info.horaires != false) {
+          customPopup += "<h3>Horaires Temporairement</h3>";
+          customPopup += "<p>";
+          customPopup += fiche.info.horaires_description;
+          customPopup += "</p>";
+        }
         customPopup += "</p>";
       }
       if (fiche.close.closeType == 2) {
@@ -451,12 +457,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         customPopup += fiche.close.precision;
         customPopup += "</p>";
       }
-      if (fiche.info.horaires != undefined || fiche.info.horaires != false) {
-        customPopup += "<h3>Horaires Temporairement</h3>";
-        customPopup += "<p>";
-        customPopup += fiche.info.horaires_description;
-        customPopup += "</p>";
-      }
+
       customPopup +=
         "<br/><a class='followMe' href=https://soliguide.fr/fiche/";
       customPopup += fiche.lieu_id;
