@@ -443,7 +443,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
         if (fiche.info.description != undefined) {
           customPopup += fiche.info.description;
         }
-        if (fiche.info.horaires != undefined || fiche.info.horaires != false) {
+        if (
+          fiche.info.horaires != undefined ||
+          fiche.info.horaires_description != undefined
+        ) {
           customPopup += "<h3>Horaires Temporairement</h3>";
           customPopup += "<p>";
           customPopup += fiche.info.horaires_description;
