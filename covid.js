@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
   var mapCenter;
 
   function updateURLParameter(url, param, paramVal) {
+    console.log("updateurlparam");
+
     var newAdditionalURL = "";
     var tempArray = url.split("?");
     var baseURL = tempArray[0];
@@ -166,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   };
 
   var loadNewMarker = function(cat, lat, lng) {
-    updateURLParameter(document.location.href, "cat", cat);
+    updateURLParameter(window.location.href, "cat", cat);
     console.log("load new");
 
     markerGroup.clearLayers();
@@ -323,14 +325,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
             var br4 = L.DomUtil.create("br");
             var instamapW = L.DomUtil.create("a");
             var cat = Object.keys(categorieList);
-            console.log(cat);
+            // console.log(cat);
 
             var optionall = L.DomUtil.create("option");
             optionall.value = 0;
             optionall.innerHTML = "choisir un catégorie";
             select.appendChild(optionall);
             for (let i = 0; i < cat.length; i++) {
-              console.log(cat);
+              // console.log(cat);
               var option = L.DomUtil.create("option");
               option.value = cat[i];
               option.innerHTML = categorieList[cat[i]];
@@ -402,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   };
 
   var CreateMarker = function(fiche) {
-    console.log(fiche);
+    // console.log(fiche);
     if (fiche.location) {
       //   var icon = L.icon({
       //     iconUrl: instaMedia.images.low_resolution.url,
@@ -425,7 +427,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
       //     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
       //     popupAnchor:  [-20, -76] // point from which the popup should open relative to the iconAnchor
       // });
-      console.log(fiche.name);
+      // console.log(fiche.name);
 
       var customPopup =
         "<div style='background-color:#fff; border : 2px #4663AB solid; color:#4663AB;padding:20px; border-radius:10px'> <h2>";
@@ -449,7 +451,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         customPopup += fiche.close.precision;
         customPopup += "</p>";
       }
-      if (fiche.info.horaires) {
+      if (fiche.info.horaires != undefined || fiche.info.horaires != false) {
         customPopup += "<h3>Horaires Temporairement</h3>";
         customPopup += "<p>";
         customPopup += fiche.info.horaires_description;
@@ -489,7 +491,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
       soliguideMap.on("moveend", function() {
         if (mapCenter != soliguideMap.getCenter()) {
           mapCenter = soliguideMap.getCenter();
-          console.log(mapCenter);
+          // console.log(mapCenter);
         }
       });
     });
