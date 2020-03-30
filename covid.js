@@ -422,6 +422,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }
         customPopup += "</p>";
       }
+      if (fiche.close.closeType == 2) {
+        customPopup += "<h3>Fermé Temporairement</h3>";
+        customPopup += "<p>";
+        customPopup += fiche.close.precision;
+        customPopup += "</p>";
+      }
       customPopup +=
         "<br/><a class='followMe' href=https://soliguide.fr/fiche/";
       customPopup += fiche.lieu_id;
