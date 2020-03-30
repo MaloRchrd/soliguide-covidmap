@@ -295,6 +295,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             var select = L.DomUtil.create("select");
             var button = L.DomUtil.create("button");
             button.innerHTML = "reload";
+            button.setAttribute("class", "followMe");
             select.id = "catSelect";
             var br2 = L.DomUtil.create("br");
             var br3 = L.DomUtil.create("br");
@@ -336,6 +337,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             img.style.borderRadius = "10px";
             container.style.textAlign = "center";
             container.style.width = "20vw";
+            container.style.borderLeft = "2px solid #4A68D6";
             container.style.backgroundColor = "#fff";
             container.style.position = "relative";
             container.style.display = "block";
@@ -420,7 +422,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }
         customPopup += "</p>";
       }
-      customPopup += "<br/><a href=https://soliguide.fr/fiche/";
+      customPopup +=
+        "<br/><a class='followMe' href=https://soliguide.fr/fiche/";
       customPopup += fiche.lieu_id;
       customPopup += ">voir sur soliguide</a></p></div>";
 
