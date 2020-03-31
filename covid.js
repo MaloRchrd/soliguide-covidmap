@@ -501,7 +501,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
     soliguideMap
       .locate({
-        watch: true
+        watch: false
       }) /* This will return map so you can do chaining */
       .on("locationfound", function(e) {
         // var marker = L.marker([e.latitude, e.longitude]).bindPopup(
